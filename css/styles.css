@@ -8,7 +8,7 @@
   --color-lose: #D94545;
   --color-start: #5b85b7;
   --color-neutral: #445069;
-  --color-neutral-light: #dad888;
+  --color-neutral-light: #ece275; /* Different color for hidden letters*/
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
@@ -130,6 +130,7 @@ button {
   justify-content: center;
 }
 
+/*Shows correct letters in green*/
 .chosen {
   background: #07a514;
   border-radius: 5px;
@@ -137,6 +138,7 @@ button {
   color: #FFFFFF;
 }
 
+/*Shows wrong letters in red*/
 .wrong {
   background: #e00d0d;
   color: #FFFFFF;
@@ -187,8 +189,21 @@ button {
   color: #fff;
 }
 
+/*Adds animation to the message in case of a win by changing colors*/
+@keyframes victory {
+  0% {color: white;}
+  25% {color: orange;}
+  50% {color: yellow;}
+  75% {color: maroon;}
+  100% {color: crimson}
+}
+
+/*Adds animation to win message*/
 .win {
   background-color: var(--color-win);
+  animation-name: victory;
+  animation-duration: 3s;
+  animation-iteration-count: 2;
 }
 
 .win a {
