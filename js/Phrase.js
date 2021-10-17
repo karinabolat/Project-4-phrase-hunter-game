@@ -7,6 +7,9 @@ class Phrase {
         this.phrase = phrase.toLowerCase();
     }
 
+    /**
+     * Displays the phrase with hidden litters on screen
+     */
     addPhraseToDisplay() {
         const div = document.getElementById('phrase');
         const ul = div.firstElementChild;
@@ -19,10 +22,19 @@ class Phrase {
         }
     }
 
+    /**
+     * Checks whether the phrase has the letter submitted by user.
+     * @param {string} letter - user input
+     * @returns {boolean} Boolean value indicating if the letter is in the phrase.
+     */
     checkLetter(letter) {
         return this.phrase.includes(letter);
     }
 
+    /**
+     * Opens the letter on the screen.
+     * @param {string} letter - Letter to be revealed on the screen.
+     */
     showMatchedLetter(letter) {
         const div = document.getElementById('phrase');
         const lis = div.getElementsByTagName('li');
