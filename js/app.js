@@ -27,12 +27,16 @@ keyboard.addEventListener('click', e => {
 /**
  * Listens for user input from physical keyboard.
  */
-document.addEventListener('keyup', e => {
-    const regex = /^[a-z]$/i;
-    if (regex.test(e.key)) {
-        const letter = e.key.toLowerCase();
-        if (!game.isLetterRepeated(letter)) {
-            game.handleInteraction(letter);
+document.addEventListener('keydown', e => {
+    if (document.getElementById('overlay').style.display === '') {
+        e.preventDefault();
+    } else {
+        const regex = /^[a-z]$/i;
+        if (regex.test(e.key)) {
+            const letter = e.key.toLowerCase();
+            if (!game.isLetterRepeated(letter)) {
+                game.handleInteraction(letter);
+            }
         }
     }
 });
